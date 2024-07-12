@@ -10,10 +10,8 @@ type EventProps = {
   onSize?: (size: SizeType) => void;
 }
 
-const Event: React.FC<EventProps> = (props) => {
+const Event: React.FC<EventProps> = ({ slim, icon, iconLabel, title, subtitle, onSize }) => {
   const ref = useRef<HTMLLIElement>(null);
-
-  const { onSize } = props;
 
   useEffect(() => {
     const width = ref.current?.offsetWidth;
@@ -23,12 +21,12 @@ const Event: React.FC<EventProps> = (props) => {
     }
   }, [onSize]);
 
-  return <li ref={ref} className={'event' + (props.slim ? ' event_slim' : '')}>
+  return <li ref={ref} className={'event' + (slim ? ' event_slim' : '')}>
     <button className="event__button">
-      <span className={`event__icon event__icon_${props.icon}`} role="img" aria-label={props.iconLabel}></span>
-      <h4 className="event__title">{props.title}</h4>
-      {props.subtitle &&
-        <span className="event__subtitle">{props.subtitle}</span>
+      <span className={`event__icon event__icon_${icon}`} role="img" aria-label={iconLabel}></span>
+      <h4 className="event__title">{title}</h4>
+      {subtitle &&
+        <span className="event__subtitle">{subtitle}</span>
       }
     </button>
   </li>;

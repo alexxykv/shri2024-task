@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import Event from "../Event/Event";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { TABS, TABS_KEYS } from "../../constants";
 import { SizeType } from "../../types";
+
+const Event = React.lazy(() => import("../Event/MemoEvent"));
 
 const Main: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,7 +37,7 @@ const Main: React.FC = () => {
     }
   }, [hasRightScroll, sizes]);
 
-  const onArrowCLick = () => {
+  const onArrowCLick = useCallback(() => {
     const scroller = ref?.current?.querySelector('.section__panel:not(.section__panel_hidden)');
     if (scroller) {
       scroller.scrollTo({
@@ -44,7 +45,7 @@ const Main: React.FC = () => {
         behavior: 'smooth'
       });
     }
-  };
+  }, []);
 
   return <main className="main">
     <section className="section main__general">
