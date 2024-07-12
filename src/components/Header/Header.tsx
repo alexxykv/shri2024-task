@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Header: React.FC = () => {
-  const [expanded, setExpanded] = React.useState(false);
-  const [toggled, setToggled] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [toggled, setToggled] = useState(false);
 
   const onClick = () => {
     if (!toggled) {

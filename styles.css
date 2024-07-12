@@ -273,8 +273,7 @@ html, body {
     display: flex;
     gap: 0.9375rem;
     height: 20.6875rem;
-    background: no-repeat 50% 50% url(src/assets/bg@2x.png);
-    /*background-size: cover;*/
+    background: no-repeat 50% 50% url(src/assets/bg@2x.avif);
     background-size: 1260px;
     border-radius: 1.25rem;
 }
@@ -285,7 +284,7 @@ html, body {
         gap: 1.25rem;
         height: auto;
         margin-bottom: 0.3125rem;
-        background-image: url(src/assets/bg@1x.png);
+        background-image: url(src/assets/bg@1x.avif);
     }
 }
 
