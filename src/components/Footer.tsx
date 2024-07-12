@@ -1,8 +1,7 @@
-import React from "react";
-import { createPortal } from "react-dom";
+import React, { memo } from "react";
 
-const Footer: React.FC = () => {
-  return createPortal((
+const Footer: React.FC = memo(() => {
+  return (
     <footer className="footer">
       <ul className="footer__list">
         <li className="footer__item">
@@ -22,7 +21,7 @@ const Footer: React.FC = () => {
         © 1997–2023 ООО «Яндекс»
       </div>
     </footer>
-  ), document.body)
-};
+  )
+});
 
 export default Footer;

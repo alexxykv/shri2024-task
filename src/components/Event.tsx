@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { SizeType } from "../../types";
+import React, { memo, useRef } from "react";
+import { SizeType } from "../types";
 
 type EventProps = {
   slim?: boolean;
@@ -10,16 +10,8 @@ type EventProps = {
   onSize?: (size: SizeType) => void;
 }
 
-const Event: React.FC<EventProps> = ({ slim, icon, iconLabel, title, subtitle, onSize }) => {
+const Event: React.FC<EventProps> = memo(({ slim, icon, iconLabel, title, subtitle }) => {
   const ref = useRef<HTMLLIElement>(null);
-
-  useEffect(() => {
-    const width = ref.current?.offsetWidth;
-    const height = ref.current?.offsetHeight;
-    if (onSize) {
-      onSize({ width, height });
-    }
-  }, [onSize]);
 
   return <li ref={ref} className={'event' + (slim ? ' event_slim' : '')}>
     <button className="event__button">
@@ -30,6 +22,6 @@ const Event: React.FC<EventProps> = ({ slim, icon, iconLabel, title, subtitle, o
       }
     </button>
   </li>;
-}
+});
 
 export default Event;

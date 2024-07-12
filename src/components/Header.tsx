@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 
-const Header: React.FC = () => {
+const Header: React.FC = memo(() => {
   const [expanded, setExpanded] = useState(false);
   const [toggled, setToggled] = useState(false);
 
@@ -31,6 +31,6 @@ const Header: React.FC = () => {
       </li>
     </ul>
   </header>;
-}
+});
 
 export default Header;
